@@ -1,0 +1,18 @@
+{
+  "name": "fancy-logger-ts",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc --incremental -p tsconfig.build.json",
+    "deploy": "npm run build && npm test && npm publish --access public"
+  },
+  "author": "Lucas Guiss",
+  "devDependencies": {
+    "@types/node": "^6.14.13",
+    "ts-node": "^8.3.0",
+    "typescript": "3.7.4"
+  },
+  "dependencies": {},
+  "keywords": []
+}
