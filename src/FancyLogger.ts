@@ -4,23 +4,20 @@ export class FancyLogger {
 
     private readonly scope: string
     private readonly createFile?: boolean
-    private readonly fileName: string
     private filePath: string
 
     constructor(
         scope: string,
         createFile?: boolean,
-        fileName?: string
     ) {
         this.scope = scope
-        this.buildFile(createFile, fileName)
+        this.buildFile(createFile, scope)
     }
 
-    private buildFile(writeFile?: boolean, fileName?: string): void {
-        if (!writeFile || !fileName) return
-        const hasTxtExtension = fileName.includes('.txt')
-        const defName = hasTxtExtension ? fileName : `${fileName}.txt`
-        this.filePath = `${process.cwd()}/${defName}`
+    private buildFile(writeFile?: boolean, scope?: string): void {
+        if (!writeFile || !scope) return
+        const defName = `${scope}_log.txt`
+        this.filePath = `${process.cwd()}/logs/${defName}`
         this.log(`Creating log file on ${this.filePath}...`)
         fs.writeFile(this.filePath, "")
     }
