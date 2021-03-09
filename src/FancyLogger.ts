@@ -3,6 +3,7 @@ import * as fs from 'fs'
 export class FancyLogger {
 
     private readonly scope: string
+    //@ts-ignore
     private readonly createFile?: boolean
     private filePath: string
 
